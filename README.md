@@ -38,10 +38,12 @@ python training.py \
 ## Evaluation
 
 Please use the evaluation script provided by the [LaMP-QA benchmark](https://github.com/LaMP-Benchmark/LaMP-QA?tab=readme-ov-file#evaluating-the-generated-responses) to evaluate generated responses.
+```bash
 python evaluation.py \
   --evaluator_model model name \
   --dataset_path data/test.jsonl \
   --response_path outputs/test_responses.json \
   --score_path outputs/test_scores.json
+```
 
 
