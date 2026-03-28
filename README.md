@@ -24,19 +24,24 @@ python download.py \
 ## Running IAP
 
 ```bash
-python IAP.py \
-    --questions_address /path/to/prepared_dataset.jsonl \
-    --output_address /path/to/output_directory \
-    --model <qwen|gemma> \
-    --temperature <temp> \
-    --judge-model <judge> \
-    --split test \
-    --subsets ALL \
-    --max-model-len <max_len>
+python training.py \
+  --policy_model model name \
+  --evaluator_model model name \
+  --train_path data/train.jsonl \
+  --val_path data/validation.jsonl \
+  --output_dir checkpoints/iap \
+  --num_rollouts 5
+  --batch_size batch size
+  --max_steps 200
 ```
 
 ## Evaluation
 
 Please use the evaluation script provided by the [LaMP-QA benchmark](https://github.com/LaMP-Benchmark/LaMP-QA?tab=readme-ov-file#evaluating-the-generated-responses) to evaluate generated responses.
+python evaluation.py \
+  --evaluator_model model name \
+  --dataset_path data/test.jsonl \
+  --response_path outputs/test_responses.json \
+  --score_path outputs/test_scores.json
 
 
